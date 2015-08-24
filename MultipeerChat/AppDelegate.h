@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MultipeerConnectivity;
+
+extern NSString * const ServiceType;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) MCSession *session;
+@property (strong, nonatomic) MCAdvertiserAssistant *assistant;
 
 
 @end

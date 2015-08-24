@@ -8,7 +8,12 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+NSString * const ServiceType = @"PP-P2PService1";
+
+@interface AppDelegate ()<MCNearbyServiceAdvertiserDelegate, MCSessionDelegate, MCAdvertiserAssistantDelegate>
+
+@property (strong, nonatomic)  MCNearbyServiceAdvertiser *advertiser;
+@property (strong, nonatomic)  MCPeerID *localPeerID;
 
 @end
 
@@ -16,7 +21,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+    self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    self.session = [[MCSession alloc] initWithPeer:self.localPeerID
+                                  securityIdentity:nil
+                              encryptionPreference:MCEncryptionNone];
+    self.session.delegate = self;
+    
+    self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID discoveryInfo:nil serviceType:ServiceType];
+    self.advertiser.delegate = self;
+    
+    self.assistant = [[MCAdvertiserAssistant alloc] initWithServiceType:ServiceType discoveryInfo:nil session:self.session];
+    
+    self.assistant.delegate = self;
+    
+    [self.assistant start];
     return YES;
 }
 
@@ -40,6 +60,36 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser
+didReceiveInvitationFromPeer:(MCPeerID *)peerID
+       withContext:(NSData *)context
+ invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString localizedStringWithFormat:@"Received Invitation from %@", peerID.displayName] message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        invitationHandler(YES, self.session);
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        invitationHandler(NO, nil);
+    }]];
+    
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+}
+
+
+// An invitation will be presented to the user
+- (void)advertiserAssistantWillPresentInvitation:(MCAdvertiserAssistant *)advertiserAssistant{
+    
+}
+
+// An invitation was dismissed from screen
+- (void)advertiserAssistantDidDismissInvitation:(MCAdvertiserAssistant *)advertiserAssistant{
+    
 }
 
 @end

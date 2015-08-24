@@ -14,6 +14,8 @@
 		4C32D2181B8AC98700072D18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C32D2171B8AC98700072D18 /* Images.xcassets */; };
 		4C32D21B1B8AC98700072D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C32D2191B8AC98700072D18 /* LaunchScreen.xib */; };
 		4C32D2271B8AC98700072D18 /* MultipeerChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C32D2261B8AC98700072D18 /* MultipeerChatTests.m */; };
+		4C32D2311B8AC9AE00072D18 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C32D2301B8AC9AE00072D18 /* MultipeerConnectivity.framework */; };
+		D40CDB6328039291E7E4F3DA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBF0958B113BF26E7CC6295 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0381A03C44A57A01DC068ECD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4C32D2071B8AC98700072D18 /* MultipeerChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipeerChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C32D20B1B8AC98700072D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C32D20C1B8AC98700072D18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +43,9 @@
 		4C32D2201B8AC98700072D18 /* MultipeerChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultipeerChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C32D2251B8AC98700072D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C32D2261B8AC98700072D18 /* MultipeerChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipeerChatTests.m; sourceTree = "<group>"; };
+		4C32D2301B8AC9AE00072D18 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		6F904E9952F8C64C77F5ECAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FFBF0958B113BF26E7CC6295 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C32D2311B8AC9AE00072D18 /* MultipeerConnectivity.framework in Frameworks */,
+				D40CDB6328039291E7E4F3DA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +68,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E1105AF7A1E53EA1D00708 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F904E9952F8C64C77F5ECAB /* Pods.debug.xcconfig */,
+				0381A03C44A57A01DC068ECD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		28E39F03E5E4444CB8F88BBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFBF0958B113BF26E7CC6295 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C32D1FE1B8AC98700072D18 = {
 			isa = PBXGroup;
 			children = (
+				4C32D2301B8AC9AE00072D18 /* MultipeerConnectivity.framework */,
 				4C32D2091B8AC98700072D18 /* MultipeerChat */,
 				4C32D2231B8AC98700072D18 /* MultipeerChatTests */,
 				4C32D2081B8AC98700072D18 /* Products */,
+				00E1105AF7A1E53EA1D00708 /* Pods */,
+				28E39F03E5E4444CB8F88BBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C32D22A1B8AC98700072D18 /* Build configuration list for PBXNativeTarget "MultipeerChat" */;
 			buildPhases = (
+				5423B0E7D173654704275909 /* Check Pods Manifest.lock */,
 				4C32D2031B8AC98700072D18 /* Sources */,
 				4C32D2041B8AC98700072D18 /* Frameworks */,
 				4C32D2051B8AC98700072D18 /* Resources */,
+				5A958EC405969BD0F3CA4859 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,6 +198,11 @@
 				TargetAttributes = {
 					4C32D2061B8AC98700072D18 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					4C32D21F1B8AC98700072D18 = {
 						CreatedOnToolsVersion = 6.4;
@@ -213,6 +248,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5423B0E7D173654704275909 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A958EC405969BD0F3CA4859 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C32D2031B8AC98700072D18 /* Sources */ = {
@@ -347,6 +415,7 @@
 		};
 		4C32D22B1B8AC98700072D18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F904E9952F8C64C77F5ECAB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MultipeerChat/Info.plist;
@@ -357,6 +426,7 @@
 		};
 		4C32D22C1B8AC98700072D18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0381A03C44A57A01DC068ECD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MultipeerChat/Info.plist;
@@ -418,6 +488,7 @@
 				4C32D22C1B8AC98700072D18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C32D22D1B8AC98700072D18 /* Build configuration list for PBXNativeTarget "MultipeerChatTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +497,7 @@
 				4C32D22F1B8AC98700072D18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

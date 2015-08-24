@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MultipeerConnectivity;
 
 @interface ViewController : UIViewController
 
+- (IBAction)didClickSayHello:(id)sender;
 
 @end
 
