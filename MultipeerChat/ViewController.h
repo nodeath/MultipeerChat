@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @import MultipeerConnectivity;
+#import "SessionManager.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<SessionManagerDelegate>
 
 - (IBAction)didClickSayHello:(id)sender;
 

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 @import MultipeerConnectivity;
 
-extern NSString * const ServiceType;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

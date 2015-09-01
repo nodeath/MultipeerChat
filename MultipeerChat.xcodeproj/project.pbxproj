@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C07931F1B940ADB002AB856 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C07931E1B940ADB002AB856 /* SessionManager.m */; };
+		4C0793221B9545D8002AB856 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0793211B9545D8002AB856 /* MessageTextView.m */; };
+		4C0793251B95475F002AB856 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0793241B95475F002AB856 /* ChatViewController.m */; };
 		4C32D20D1B8AC98700072D18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C32D20C1B8AC98700072D18 /* main.m */; };
 		4C32D2101B8AC98700072D18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C32D20F1B8AC98700072D18 /* AppDelegate.m */; };
 		4C32D2131B8AC98700072D18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C32D2121B8AC98700072D18 /* ViewController.m */; };
@@ -30,6 +33,12 @@
 
 /* Begin PBXFileReference section */
 		0381A03C44A57A01DC068ECD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4C07931D1B940ADB002AB856 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionManager.h; path = DAO/SessionManager.h; sourceTree = "<group>"; };
+		4C07931E1B940ADB002AB856 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionManager.m; path = DAO/SessionManager.m; sourceTree = "<group>"; };
+		4C0793201B9545D8002AB856 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextView.h; sourceTree = "<group>"; };
+		4C0793211B9545D8002AB856 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextView.m; sourceTree = "<group>"; };
+		4C0793231B95475F002AB856 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		4C0793241B95475F002AB856 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		4C32D2071B8AC98700072D18 /* MultipeerChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipeerChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C32D20B1B8AC98700072D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C32D20C1B8AC98700072D18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,15 +89,24 @@
 		28E39F03E5E4444CB8F88BBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C32D2301B8AC9AE00072D18 /* MultipeerConnectivity.framework */,
 				FFBF0958B113BF26E7CC6295 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C07931C1B940AA3002AB856 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				4C07931D1B940ADB002AB856 /* SessionManager.h */,
+				4C07931E1B940ADB002AB856 /* SessionManager.m */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
 		4C32D1FE1B8AC98700072D18 = {
 			isa = PBXGroup;
 			children = (
-				4C32D2301B8AC9AE00072D18 /* MultipeerConnectivity.framework */,
 				4C32D2091B8AC98700072D18 /* MultipeerChat */,
 				4C32D2231B8AC98700072D18 /* MultipeerChatTests */,
 				4C32D2081B8AC98700072D18 /* Products */,
@@ -109,10 +127,15 @@
 		4C32D2091B8AC98700072D18 /* MultipeerChat */ = {
 			isa = PBXGroup;
 			children = (
+				4C07931C1B940AA3002AB856 /* DAO */,
 				4C32D20E1B8AC98700072D18 /* AppDelegate.h */,
 				4C32D20F1B8AC98700072D18 /* AppDelegate.m */,
 				4C32D2111B8AC98700072D18 /* ViewController.h */,
 				4C32D2121B8AC98700072D18 /* ViewController.m */,
+				4C0793231B95475F002AB856 /* ChatViewController.h */,
+				4C0793241B95475F002AB856 /* ChatViewController.m */,
+				4C0793201B9545D8002AB856 /* MessageTextView.h */,
+				4C0793211B9545D8002AB856 /* MessageTextView.m */,
 				4C32D2141B8AC98700072D18 /* Main.storyboard */,
 				4C32D2171B8AC98700072D18 /* Images.xcassets */,
 				4C32D2191B8AC98700072D18 /* LaunchScreen.xib */,
@@ -287,8 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0793221B9545D8002AB856 /* MessageTextView.m in Sources */,
 				4C32D2131B8AC98700072D18 /* ViewController.m in Sources */,
+				4C0793251B95475F002AB856 /* ChatViewController.m in Sources */,
 				4C32D2101B8AC98700072D18 /* AppDelegate.m in Sources */,
+				4C07931F1B940ADB002AB856 /* SessionManager.m in Sources */,
 				4C32D20D1B8AC98700072D18 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
